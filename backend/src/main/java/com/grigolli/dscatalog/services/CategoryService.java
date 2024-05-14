@@ -1,11 +1,13 @@
 package com.grigolli.dscatalog.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.grigolli.dscatalog.dto.CategoryDTO;
 import com.grigolli.dscatalog.entities.Category;
 import com.grigolli.dscatalog.repositories.CategoryRepository;
 
@@ -17,9 +19,16 @@ public class CategoryService {
 
 
     @Transactional(readOnly = true)
-    public List<Category> findAll(){
-        return repository.findAll();
+    public List<CategoryDTO> findAll(){
+        List<Category> list = repository.findAll();
+
+        List<CategoryDTO> listDTO = new ArrayList<>();
+        for(Category cat: list){
+            listDTO.add(new CategoryDTO(cat));
+        }
         
+
+        return listDTO;
     }
     
 }
