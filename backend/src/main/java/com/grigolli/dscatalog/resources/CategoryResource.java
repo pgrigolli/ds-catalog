@@ -1,6 +1,5 @@
 package com.grigolli.dscatalog.resources;
 
-import java.util.List;
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
