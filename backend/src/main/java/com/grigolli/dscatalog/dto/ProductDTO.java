@@ -11,7 +11,7 @@ import com.grigolli.dscatalog.entities.Product;
 
 
 public class ProductDTO implements Serializable{
-    
+
     private static final long serialVersionUID = 1L;
  
     private Long id;
@@ -45,7 +45,6 @@ public class ProductDTO implements Serializable{
     }
 
     public ProductDTO(Product entity, Set<Category> categories){
-
         this(entity);
         categories.forEach(cat -> this.categories.add(new CategoryDTO(cat)));
 
